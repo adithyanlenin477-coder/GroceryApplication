@@ -1,0 +1,8 @@
+testScripts\LoginTest.class
+mainProjectSelenium\TestNGBase.class
+reportGeneration\Listeners.class
+testScripts\ManageDeliveryBoyTest.class
+testScripts\HomeTest.class
+testScripts\AdminUserTest.class
+testScripts\ManageNewsTest.class
+retry\Retry.class
