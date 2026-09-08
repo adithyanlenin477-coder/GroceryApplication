@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import mainProjectSelenium.TestNGBase;
 import pages.HomePage;
 import pages.LoginPage;
@@ -32,7 +33,7 @@ public class ManageDeliveryBoyTest extends TestNGBase {
 		String DeliveryBoyPassword=ExcelUtilities.readStringData(0, 2, "DeliveryBoyDetails");
 		obj1.clickNew().addName(DeliveryBoyName).newEmail(DeliveryBoyEmail).phoneNo(DeliveryBoyPhNo).newAddress(DeliveryBoyAddress).enterUsername(DeliveryBoyUserName).enterPassword(DeliveryBoyPassword).saveButton();
 		boolean actual = obj1.verifyDeliveryBoyCreatedSuccessfully();
-	    Assert.assertTrue(actual,"User is created successfully");
+	    Assert.assertTrue(actual,Constant.NEWDELIVERYBOYADDING);
 			
 	}
 	@Test(description="verify whether delivery boy is enable to search")
@@ -49,7 +50,7 @@ public class ManageDeliveryBoyTest extends TestNGBase {
 		obj1.searchButton().nameForSearching(searchName).emailForSearching(searchEmail).phNoForSearching(searchPhone).clickSearch();	
 		String actual = obj1.verifySearchedUsername();
 		String expected = searchName;
-		Assert.assertEquals(actual, expected, "Searched name is not displayed");
+		Assert.assertEquals(actual, expected,Constant.DELIVERYBOYSEARCHINGERROR);
 		
 	}
 

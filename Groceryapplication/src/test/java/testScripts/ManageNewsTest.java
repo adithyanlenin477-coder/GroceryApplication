@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import mainProjectSelenium.TestNGBase;
 import pages.HomePage;
 import pages.LoginPage;
@@ -25,7 +26,7 @@ public class ManageNewsTest extends TestNGBase {
 		String addNews=ExcelUtilities.readStringData(0, 0, "AddNews");
 		news.clickEdit().addNews(addNews).clickSave();
 		boolean actual = news.verifyNewsWasCreatedSuccessfully();
-	    Assert.assertTrue(actual,"News is created successfully");
+	    Assert.assertTrue(actual,Constant.NEWSREPORTADDING);
 	}
 	@Test(description="Verify whether user is able to search news")
 	public void verifyWhetherUserIsableToSearchNews() throws IOException {
@@ -39,7 +40,7 @@ public class ManageNewsTest extends TestNGBase {
 		news.clickSearch().searchNews(newsTitleForSearch).clickSearchButton();
 		String actual = news.verifySearchedNews();
 		String expected = newsTitleForSearch;
-		Assert.assertEquals(actual, expected, "Searched news is not displayed");
+		Assert.assertEquals(actual, expected,Constant.NEWSREPORTSEARCHINGERROR_STRING);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import mainProjectSelenium.TestNGBase;
 import pages.HomePage;
 import pages.LoginPage;
@@ -25,7 +26,7 @@ public class HomeTest extends TestNGBase {
 		obj=obj1.clickLogOut();
 		String actual=obj.verifyLogintextisDisplayed();
 		String expected="7rmart supermarket";
-		Assert.assertEquals(actual, expected,"User is able to logout ");
+		Assert.assertEquals(actual, expected,Constant.LOGOUTERRORMESSEGE);
 	}
 
 

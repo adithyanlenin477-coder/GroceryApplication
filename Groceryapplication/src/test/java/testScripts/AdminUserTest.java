@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import mainProjectSelenium.TestNGBase;
 import pages.AdminUserPage;
 import pages.HomePage;
@@ -31,7 +32,7 @@ public class AdminUserTest extends TestNGBase {
 		String passwordAdmin=ru.generateRandomPassword();
 		obj1.clickUser().enterUsername(usernameAdmin).enterPassword(passwordAdmin).selectUserType().save();
 		boolean actual = obj1.verifyUserCreatedSuccessfully();
-	    Assert.assertTrue(actual,"User is not created successfully");
+	    Assert.assertTrue(actual,Constant.ADDNEWADMINUSERERRORMESSEGE);
 	}
 	@Test(description="Verify whether user is able to search newly added admin user")
 	public void verifyWhetherUserIsAbleToSearchTheNewlyAddedAdminUser() throws IOException {
@@ -45,7 +46,7 @@ public class AdminUserTest extends TestNGBase {
 		obj1.clickSearch().enterUsernameSearch(searchingUsername).selectUserTypeSearch().userNameSearch();
 		String actual = obj1.verifySearchedUsername();
 		String expected = searchingUsername;
-		Assert.assertEquals(actual, expected, "Searched username is not displayed");
+		Assert.assertEquals(actual, expected,Constant.SEARCHINGFORNEWADMINUSERERRORMESSEGE);
 		
 	}
 
